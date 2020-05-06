@@ -13,9 +13,9 @@ public interface NewsService {
 
     News getNewsById(Long id);
 
-    void putById(Long id, NewsModel newsModel);
+    void putById(Long id, News news);
 
-    void create(NewsModel newsModel);
+    void create(News news);
 
     String deleteById(Long id);
 }

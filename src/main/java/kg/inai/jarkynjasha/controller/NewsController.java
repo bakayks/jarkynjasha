@@ -26,7 +26,8 @@ public class NewsController {
     public String getNewsList(@PageableDefault(7) Pageable pageable,
                                       Model model) {
         Page<News> newsList = newsService.getAllNewsWithPagination(pageable);
-        model.addAttribute("news", newsList);
+        model.addAttribute("newsList", newsList);
+        model.addAttribute("bool", true);
         return "newsList";
     }
 
@@ -41,8 +42,8 @@ public class NewsController {
 
     @PostMapping("update/{id}")
     public String updateNews(@PathVariable("id") Long id,
-                                     @Valid @ModelAttribute("news") NewsModel newsModel) {
-        newsService.putById(id, newsModel);
+                                     @Valid @ModelAttribute("news") News news) {
+        newsService.putById(id, news);
         return "redirect:/news/list";
     }
 
@@ -54,13 +55,13 @@ public class NewsController {
     }
 
     @PostMapping(value = "/create")
-    public String addNews(@Valid @ModelAttribute("news") NewsModel newsModel,
+    public String addNews(@Valid @ModelAttribute("news") News news,
                                   BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("add", true);
             return "newsForm";
         }
-        newsService.create(newsModel);
+        newsService.create(news);
         return "redirect:list";
     }
 

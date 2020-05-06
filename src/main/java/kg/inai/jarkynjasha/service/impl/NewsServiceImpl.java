@@ -36,15 +36,16 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void putById(Long id, NewsModel newsModel) {
+    public void putById(Long id, News news) {
         newsRepository.findById(id)
                 .map(newNews -> {
-                    newNews.setTitle(newsModel.getTitle());
-                    newNews.setDescription(newsModel.getDescription());
-                    if (newsModel.getImage() != null && newsModel.getImage().getContentType().contains("image")) {
-                        newNews.setImage(UtilBase64Image.encoder(newsModel.getImage()));
-                    }
-                    newNews.setCreatedDate(newsModel.getCreatedDate());
+                    newNews.setTitle(news.getTitle());
+                    newNews.setDescription(news.getDescription());
+                    newNews.setImage(news.getImage());
+//                    if (newsModel.getImage() != null && newsModel.getImage().getContentType().contains("image")) {
+//                        newNews.setImage(UtilBase64Image.encoder(newsModel.getImage()));
+//                    }
+//                    newNews.setCreatedDate(newsModel.getCreatedDate());
                     return newsRepository.save(newNews);
                 })
                 .orElseThrow(() ->
@@ -52,15 +53,8 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void create(NewsModel newsModel) {
-        News organization = new News();
-        organization.setTitle(newsModel.getTitle());
-        organization.setDescription(newsModel.getDescription());
-        if(newsModel.getImage() != null && newsModel.getImage().getContentType().contains("image")) {
-            organization.setImage(UtilBase64Image.encoder(newsModel.getImage()));
-        }
-        organization.setCreatedDate(newsModel.getCreatedDate());
-        newsRepository.save(organization);
+    public void create(News news) {
+        newsRepository.save(news);
     }
 
     @Override

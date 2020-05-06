@@ -36,13 +36,13 @@ public class News {
     /**
      * Last name
      */
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "text")
     private String description;
 
     /**
      * News image encode to base64
      */
-    @Column(name = "image")
+    @Column(name = "image", columnDefinition = "text")
     private String image;
 
     /**

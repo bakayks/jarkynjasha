@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class User{
 
     /**
      * Identification
@@ -35,6 +35,4 @@ public class User {
      */
     @Column(name = "password")
     private String password;
-
-
 }

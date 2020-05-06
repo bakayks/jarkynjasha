@@ -26,7 +26,6 @@ public class Diary {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "diary_seq")
     private Long id;
 
-
     /**
      * Title
      */
