@@ -2,8 +2,6 @@ package kg.inai.jarkynjasha.service;
 
 import kg.inai.jarkynjasha.entity.Article;
 import kg.inai.jarkynjasha.model.ArticleModel;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -12,9 +10,9 @@ public interface ArticleService {
 
     Article getArticleById(Long id);
 
-    void putById(Long id, ArticleModel ArticleModel);
+    void putById(Long id, ArticleModel articleModel);
 
-    void create(ArticleModel ArticleModel);
+    void create(ArticleModel articleModel);
 
     String deleteById(Long id);
 }

@@ -1,6 +1,5 @@
 package kg.inai.jarkynjasha.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,15 +15,15 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "articles")
-public class Article {
+@Table(name = "diary")
+public class Diary {
 
     /**
      * Identification
      */
     @Id
-    @SequenceGenerator(name = "article_seq", sequenceName = "article_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "article_seq")
+    @SequenceGenerator(name = "diary_seq", sequenceName = "diary_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "diary_seq")
     private Long id;
 
 
