@@ -52,4 +52,8 @@ public class Diary {
     @Column(name = "created_date")
     @DateTimeFormat(pattern="dd-MM-yyyy")
     private Date createdDate;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    User user;
 }

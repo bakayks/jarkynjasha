@@ -1,6 +1,5 @@
 package kg.inai.jarkynjasha.controller;
 
-import kg.inai.jarkynjasha.entity.Article;
 import kg.inai.jarkynjasha.entity.Diary;
 import kg.inai.jarkynjasha.model.DiaryModel;
 import kg.inai.jarkynjasha.service.DiaryService;
