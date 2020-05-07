@@ -26,8 +26,7 @@ public class NewsController {
 
     @ModelAttribute("crisisСenters")
     public List<CrisisСenter> getCrisisCenters() {
-        int length = crisisCenterService.findAll().size();
-        List<CrisisСenter> crisisСenters = crisisCenterService.findAll().subList(length-9, length-1);
+        List<CrisisСenter> crisisСenters = crisisCenterService.findAll();
         return crisisСenters;
     }
 
