@@ -1,0 +1,43 @@
+<!doctype html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="${news.title}"></title>
+</head>
+<body>
+<div layout:fragment="content">
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+            <div class="col-md-9">
+                <h1 class="mt-4 mb-3" th:text="${news.title}"></h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a th:href="'/main'">Главная</a>
+                    </li>
+                    <li class="breadcrumb-item active">Новость</li>
+                </ol>
+                <img class="img-fluid" th:src="${news.image}" alt="" style="padding-bottom: 50px">
+                <p class="h4" th:text="${news.description}">Description</p>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom: 10px">
+            <h3 class="col-md-8">Последние новости</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-5 mb-3" th:each="news : ${lastThreeNews}">
+                <a th:href="'/news/'+${news.id}">
+                    <img class="img-fluid" th:src="${news.image}" alt="">
+                    <h3 th:text="${news.title}"></h3>
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+</div>
+</body>
+</html>

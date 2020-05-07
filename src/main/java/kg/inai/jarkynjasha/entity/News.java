@@ -18,6 +18,7 @@ import java.util.Date;
 @Table(name = "news")
 public class News {
 
+
     /**
      * Identification
      */

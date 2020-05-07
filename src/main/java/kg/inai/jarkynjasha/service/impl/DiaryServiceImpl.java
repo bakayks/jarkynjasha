@@ -1,18 +1,12 @@
 package kg.inai.jarkynjasha.service.impl;
 
 import kg.inai.jarkynjasha.entity.Diary;
-import kg.inai.jarkynjasha.entity.News;
 import kg.inai.jarkynjasha.exception.RecordNotFoundException;
 import kg.inai.jarkynjasha.model.DiaryModel;
-import kg.inai.jarkynjasha.model.NewsModel;
 import kg.inai.jarkynjasha.repository.DiaryRepository;
-import kg.inai.jarkynjasha.repository.NewsRepository;
 import kg.inai.jarkynjasha.service.DiaryService;
-import kg.inai.jarkynjasha.service.NewsService;
 import kg.inai.jarkynjasha.util.UtilBase64Image;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

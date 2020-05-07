@@ -1,18 +1,13 @@
 <!doctype html>
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}">
-<head>
-    <title data-th-text="#{label.tags}"></title>
-</head>
 <body>
 <div layout:fragment="content">
     <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Blog Home One
-            <small>Subheading</small>
-        </h1>
+        <h1 class="mt-4 mb-3">Новости</h1>
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -30,14 +25,21 @@
                 <div class="card mb-4" th:each="news : ${newsList}">
                     <img class="card-img-top" th:src="${news.image}" alt="Card image cap">
                     <div class="card-body">
-                        <h2 class="card-title" th:text="${news.title}">Post Title</h2>
-                        <p class="card-text" th:text="${news.description}" size="30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a th:href="'/news/'+${news.id}" class="btn btn-primary">Read More &rarr;</a>
+                        <h2 class="card-title" th:text="${news.title}">Название</h2>
+                        <p class="card-text" th:text="${news.description}">Описание</p>
+                        <a th:href="'/news/'+${news.id}" class="btn btn-primary">Читать далее &rarr;</a>
                     </div>
-                    <div class="card-footer text-muted" th:text="'Posted on'+${news.createdDate}">
-                        Posted on January 1, 2017 by
+                    <div class="card-footer text-muted" th:text="'Добавлено: '+${news.createdDate}">
+                        Опубликовано: 06-05-2020
                     </div>
                 </div>
+
+                <script>
+                    var maxlength = 150;
+                    $('p.card-text').text(function (_, text) {
+                        return $.trim(text).substring(0, maxlength)+'...';
+                    });
+                </script>
 
                 <!-- Pagination -->
                 <ul class="pagination justify-content-center mb-4">
@@ -56,13 +58,13 @@
 
                 <!-- Search Widget -->
                 <div class="card mb-4">
-                    <h5 class="card-header">Search</h5>
+                    <h5 class="card-header">Поиск</h5>
                     <div class="card-body">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search for...">
                             <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
+                                <button class="btn btn-secondary" type="button">Искать!</button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -101,7 +103,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Side Widget -->
                 <div class="card my-4">
                     <h5 class="card-header">Side Widget</h5>

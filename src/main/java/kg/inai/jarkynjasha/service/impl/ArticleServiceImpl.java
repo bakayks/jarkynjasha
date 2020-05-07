@@ -3,13 +3,10 @@ package kg.inai.jarkynjasha.service.impl;
 import kg.inai.jarkynjasha.entity.Article;
 import kg.inai.jarkynjasha.exception.RecordNotFoundException;
 import kg.inai.jarkynjasha.model.ArticleModel;
-import kg.inai.jarkynjasha.model.NewsModel;
 import kg.inai.jarkynjasha.repository.ArticleRepository;
 import kg.inai.jarkynjasha.service.ArticleService;
 import kg.inai.jarkynjasha.util.UtilBase64Image;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

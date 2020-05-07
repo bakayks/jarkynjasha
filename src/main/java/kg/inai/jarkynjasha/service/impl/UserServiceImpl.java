@@ -1,13 +1,9 @@
 package kg.inai.jarkynjasha.service.impl;
 
-import kg.inai.jarkynjasha.entity.Article;
-import kg.inai.jarkynjasha.entity.News;
 import kg.inai.jarkynjasha.entity.User;
 import kg.inai.jarkynjasha.exception.RecordNotFoundException;
-import kg.inai.jarkynjasha.model.NewsModel;
 import kg.inai.jarkynjasha.repository.UserRepository;
 import kg.inai.jarkynjasha.service.UserService;
-import kg.inai.jarkynjasha.util.UtilBase64Image;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

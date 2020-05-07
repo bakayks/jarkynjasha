@@ -5055,7 +5055,9 @@ Vertical Timeline - by CodyHouse.co
     width: 1240px;
 }
 
-
+.row{
+    padding-bottom: 50px;
+}
 /*-----------------------
 6.10 Metrics
 -------------------------*/

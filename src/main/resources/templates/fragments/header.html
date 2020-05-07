@@ -10,46 +10,32 @@
         <!-- Navigation -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <img src="https://png.pngtree.com/png-vector/20190611/ourlarge/pngtree-beautiful-summer-sunset-with-sun-on-the-beach-png-image_1496082.jpg" class="img-circle" alt="Cinque Terre" width="50" height="50">
+                <a class="navbar-brand" href="index.html">Jarkyn Jasha</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" th:href="'/main'"><i class="fas fa-home"></i> Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="services.html">Services</a>
+                            <a class="nav-link" th:href="'/news/list'"><i class="far fa-newspaper"></i> Новости</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" th:href="'/article/list'"><i class="fal fa-book-heart"></i> Статьи</a>
                         </li>
-                        <li class="nav-item active dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Portfolio
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                                <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-                                <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-                                <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                                <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                                <a class="dropdown-item active" href="portfolio-item.html">Single Portfolio Item</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="'/question/list'"><i class="fas fa-question"></i> Вопросы</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="'/questionnaire'"><i class="fab fa-trello"></i> Опрос</a>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Blog
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                                <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-                                <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                                <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Other Pages
+                                <i class="fas fa-scroll-old"></i> Другое
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                                 <a class="dropdown-item" href="full-width.html">Full Width Page</a>
