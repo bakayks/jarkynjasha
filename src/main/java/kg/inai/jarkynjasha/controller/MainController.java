@@ -38,6 +38,19 @@ public class MainController {
         return crisisСenters;
     }
 
+    @GetMapping("/")
+    public String get(Model model){
+        List<News> newsList = newsService.findAll().subList(0, 3);
+        List<Article> articleList = articleService.findAll().subList(0, 3);
+        List<Event> eventList = eventService.findAll().subList(0, 3);
+        model.addAttribute("isMain", true);
+        model.addAttribute("centers", getCrisisCenters());
+        model.addAttribute("newsList", newsList);
+        model.addAttribute("articleList", articleList);
+        model.addAttribute("eventList", eventList);
+        return "index";
+    }
+
     @GetMapping("/main")
     public String getMain(Model model){
         List<News> newsList = newsService.findAll().subList(0, 3);
