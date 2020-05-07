@@ -19,15 +19,26 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private CrisisCenterService crisisCenterService;
+
+    @ModelAttribute("crisisСenters")
+    public List<CrisisСenter> getCrisisCenters() {
+        List<CrisisСenter> crisisСenters = crisisCenterService.findAll();
+        return crisisСenters;
+    }
+
     @GetMapping(value = "/list")
     public String getAll(Model model) {
         List<Article> articleList=articleService.findAll();
         model.addAttribute("articles", articleList);
+        model.addAttribute("centers", getCrisisCenters());
         return "articleList";
     }
 
     @GetMapping(value = "/{id}")
-    public Article getById(@PathVariable("id") Long id) {
+    public Article getById(@PathVariable("id") Long id,Model model) {
+        model.addAttribute("centers", getCrisisCenters());
         return articleService.getArticleById(id);
     }
 
