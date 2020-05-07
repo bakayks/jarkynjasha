@@ -57,8 +57,9 @@ public class ArticleController {
     }
 
     @PostMapping(value = "/delete/{id}")
-    public void deleteById(@PathVariable("id") Long id) {
+    public String deleteById(@PathVariable("id") Long id) {
         articleService.deleteById(id);
+        return "redirect:/article/list";
     }
 }
 
