@@ -12,7 +12,7 @@ public interface ArticleService {
 
     void putById(Long id, ArticleModel articleModel);
 
-    void create(ArticleModel articleModel);
+    void create(Article article);
 
     String deleteById(Long id);
 }

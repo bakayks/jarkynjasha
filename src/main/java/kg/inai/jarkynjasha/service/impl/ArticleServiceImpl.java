@@ -44,14 +44,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void create(ArticleModel articleModel) {
-        Article article = new Article();
-        article.setTitle(articleModel.getTitle());
-        article.setDescription(articleModel.getDescription());
-        if(articleModel.getImage() != null && articleModel.getImage().getContentType().contains("image")) {
-            article.setImage(UtilBase64Image.encoder(articleModel.getImage()));
-        }
-        article.setCreatedDate(articleModel.getCreatedDate());
+    public void create(Article article) {
         articleRepository.save(article);
     }
 

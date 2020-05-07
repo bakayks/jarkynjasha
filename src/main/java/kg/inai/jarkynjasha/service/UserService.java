@@ -1,7 +1,6 @@
 package kg.inai.jarkynjasha.service;
 
 import kg.inai.jarkynjasha.entity.User;
-import kg.inai.jarkynjasha.model.NewsModel;
 
 import java.util.List;
 
