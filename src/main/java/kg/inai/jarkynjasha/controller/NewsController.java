@@ -7,7 +7,6 @@ import kg.inai.jarkynjasha.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,6 +45,7 @@ public class NewsController {
         List<News> lastThreeNews = newsService.findAll().subList(length-4, length-1);
         model.addAttribute("news", news);
         model.addAttribute("lastThreeNews", lastThreeNews);
+        model.addAttribute("centers", getCrisisCenters());
         return "newsDetail";
 
     }
@@ -57,21 +57,10 @@ public class NewsController {
         return "redirect:/news/list";
     }
 
-
-    @GetMapping(value = "/form")
-    public String newsForm(Model model) {
-        return "newsForm";
-    }
-
     @PostMapping(value = "/create")
-    public String addNews(@Valid @ModelAttribute("news") News news,
-                                  BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            model.addAttribute("add", true);
-            return "newsForm";
-        }
+    public String addNews(@Valid @ModelAttribute("news") News news) {
         newsService.create(news);
-        return "redirect:list";
+        return "redirect:/news/list";
     }
 
     @PostMapping("/delete/{id}")
