@@ -10,15 +10,13 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Blog Home One
-            <small>Subheading</small>
-        </h1>
+        <h1 class="mt-4 mb-3">Cтатьи</h1>
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Home</a>
+                <a href="index.html">Главная</a>
             </li>
-            <li class="breadcrumb-item active">Blog Home 1</li>
+            <li class="breadcrumb-item active">Статьи</li>
         </ol>
 
         <div class="row">
@@ -30,25 +28,31 @@
                 <div class="card mb-4" th:each="article : ${articleList}">
                     <img class="card-img-top" th:src="${article.image}" alt="Card image cap">
                     <div class="card-body">
-                        <h2 class="card-title" th:text="${article.title}">Post Title</h2>
-                        <p class="card-text" th:text="${article.description}" size="30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a th:href="'/articles/'+${article.id}" class="btn btn-primary">Read More &rarr;</a>
+                        <h2 class="card-title" th:text="${article.title}">Название</h2>
+                        <p class="card-text" th:text="${article.description}" size="30">Описание</p>
+                        <a th:href="'/article/'+${article.id}" class="btn btn-primary">Читать далее </a>
                     </div>
-                    <div class="card-footer text-muted" th:text="'Posted on'+${article.createdDate}">
+                    <div class="card-footer text-muted" th:text="'Опуликовано: '+${article.createdDate}">
                         Posted on January 1, 2017 by
                     </div>
                 </div>
 
+                <script>
+                    var maxlength = 200;
+                    $('p.card-text').text(function (_, text) {
+                        return $.trim(text).substring(0, maxlength)+'...';
+                    });
+                </script>
+
                 <!-- Pagination -->
                 <ul class="pagination justify-content-center mb-4">
                     <li class="page-item">
-                        <a class="page-link" href="#">&larr; Older</a>
+                        <a class="page-link" href="#">&larr; Назад</a>
                     </li>
                     <li class="page-item disabled">
-                        <a class="page-link" href="#">Newer &rarr;</a>
+                        <a class="page-link" href="#">Вперед &rarr;</a>
                     </li>
                 </ul>
-
             </div>
 
             <!-- Sidebar Widgets Column -->

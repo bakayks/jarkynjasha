@@ -10,39 +10,36 @@
         <!-- Navigation -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <img src="https://png.pngtree.com/png-vector/20190611/ourlarge/pngtree-beautiful-summer-sunset-with-sun-on-the-beach-png-image_1496082.jpg" class="img-circle" alt="Cinque Terre" width="50" height="50">
-                <a class="navbar-brand" href="index.html">Jarkyn Jasha</a>
+                <img src="https://lh3.googleusercontent.com/proxy/tAe70asKHPlM_3tFjpQ_d_vyPcEW0Vvta74VN09ZUUy_Y1zezjWoCZIFqYZmymXZQ-x0RjfKQJL-hwfpvg-vTrfH0XNdGmRSia1mZXPqx9_siH5oJITibw" class="img-circle" alt="Cinque Terre" width="50" height="50">
+                <a class="navbar-brand" th:href="'/main'">Жаркын жаша</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" style="font-size: 17px;">
                         <li class="nav-item">
-                            <a class="nav-link" th:href="'/main'"><i class="fas fa-home"></i> Главная</a>
+                            <a class="nav-link" th:href="'/main'"><i class="fa fa-home"></i> Главная</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="'/news/list'"><i class="far fa-newspaper"></i> Новости</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="'/article/list'"><i class="fal fa-book-heart"></i> Статьи</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="'/question/list'"><i class="fas fa-question"></i> Вопросы</a>
+                            <a class="nav-link" th:href="'/article/list'"><i class="fa fa-book"></i> Статьи</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="'/questionnaire'"><i class="fab fa-trello"></i> Опрос</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="'/event/list'"><i class="fas fa-calendar-alt"></i> Мероприятия</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-scroll-old"></i> Другое
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                                <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-                                <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                                <a class="dropdown-item" href="faq.html">FAQ</a>
-                                <a class="dropdown-item" href="404.html">404</a>
-                                <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                                <a class="dropdown-item" th:href="'/faq'">Часто задаваемые вопросы</a>
+                                <a class="dropdown-item" th:href="''">FAQ</a>
+                                <a class="dropdown-item" th:href="''">404</a>
                             </div>
                         </li>
                     </ul>

@@ -1,19 +1,215 @@
-<hmtl
-        lang="en"
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org"
-        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <!-- ============================================================== -->
-    <!-- header -->
-    <!-- ============================================================== -->
-    <div th:fragment="header">
-        <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-custom fixed-top">
+<!doctype html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Главная</title>
+</head>
 
-            </nav>
+<body>
+<div layout:fragment="content">
+    <div style="padding-bottom: 50px;" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="https://www.unicef.org/kyrgyzstan/sites/unicef.org.kyrgyzstan/files/styles/hero_desktop/public/End%20Violence.jpg?itok=Ss6DpVSz" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://scontent.ffru6-1.fna.fbcdn.net/v/t1.0-9/94252708_3014759515230416_1866309916000518144_n.png?_nc_cat=111&_nc_sid=6e5ad9&_nc_ohc=_9jPgfFSGN0AX9sVUHz&_nc_ht=scontent.ffru6-1.fna&oh=45d93dd78f606f5a1d69c3c01a4397d9&oe=5EDA06E0" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://kp.ru/share/i/fill/FFFFFF/cr-708x419.t-10-102579-osb-26-9-000-520-l-50-m-0.b-FFF-0-0-0-49.b-0083cd-6.t-4-1411784-osr-20-5-565656-480-l-180-b-80.wm-kpl-100-bl-24-24.png" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="row" style="padding-left:13px;">
+        <div id="chartContainer" style="height: 300px; width: 50%;"></div>
+        <div id="chartContainer1" style="height: 300px; width: 50%;"></div>
+    </div>
+    <div class="row" style="padding-bottom: 20px; padding-left:13px;">
+        <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+    </div>
+    <script type="text/javascript">
+         window.onload = function () {
+         var options = {
+            title: {
+                text: "Причины насилия в семье"
+            },
+            data: [{
+                    type: "pie",
+                    startAngle: 45,
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabel: "{label} ({y})",
+                    yValueFormatString:"#,##0.#"%"",
+                    dataPoints: [
+                        { label: "Алкоголизм", y: 70 },
+                        { label: "Развод родителей", y: 20 },
+                        { label: "Материальные трудности", y: 10 },
+                    ]
+            }]
+        };
+        var options1 = {
+            title: {
+                text: "Кто подвергается к домашнему насилию?"
+            },
+            data: [{
+                    type: "pie",
+                    startAngle: 45,
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabel: "{label} ({y})",
+                    yValueFormatString:"#,##0.#"%"",
+                    dataPoints: [
+                        { label: "Женщины", y: 65 },
+                        { label: "Дети", y: 25 },
+                        { label: "Пожилые люди", y: 5 },
+                        { label: "Люди с инвалидностью", y: 4 },
+                        { label: "Мужчины", y: 1 },
+                    ]
+            }]
+        };
+        //Better to construct options first and then pass it as a parameter
+        var options3 = {
+            animationEnabled: true,
+            title:{
+                text: "Количество случаев насилия в Кыргызстане по годам"
+            },
+            axisY:{
+                title:"Количество"
+            },
+            toolTip: {
+                shared: true,
+                reversed: true
+            },
+            data: [{
+                type: "stackedColumn",
+                name: "Количество случаев",
+                showInLegend: "true",
+                yValueFormatString: "#,##0 случаев",
+                dataPoints: [
+                    { y: 5026 , label: "2016" },
+                    { y: 7000, label: "2017" },
+                    { y: 7980, label: "2018" },
+                    { y: 6145, label: "2019" },
+                ]
+            }
+           ]
+        };
+        $("#chartContainer").CanvasJSChart(options);
+        $("#chartContainer1").CanvasJSChart(options1);
+        $("#chartContainer3").CanvasJSChart(options3);
+        }
+    </script>
+    <hr>
+    <!-- Portfolio Section -->
+    <h1 class="mt-4 mb-3 text-center display-4">Новости</h1>
+    <div class="row" style="padding-left:10px;padding-right:10px;">
+        <div class="col-lg-4 col-sm-5 portfolio-item" th:each="news : ${newsList}">
+            <div class="card h-100">
+                <a th:href="'/news/'+${news.id}"><img class="card-img-top" th:src="${news.image}" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#" th:text="${news.title}"></a>
+                    </h4>
+                    <p class="card-text" th:text="${news.description}"></p>
+                    <a th:href="'/news/'+${news.id}" class="btn btn-primary">Читать далее &rarr;</a>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- end header -->
-    <!-- ============================================================== -->
-</hmtl>
+    <!-- /.row -->
+    <hr>
+    <!-- Portfolio Section -->
+    <h1 class="mt-4 mb-3 text-center display-4">Статьи</h1>
+    <div class="row" style="padding-left:10px;padding-right:10px;">
+        <div class="col-lg-4 col-sm-5 portfolio-item" th:each="article : ${articleList}">
+            <div class="card h-100">
+                <a th:href="'/article/'+${article.id}"><img class="card-img-top" th:src="${article.image}" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title" style="color:black;">
+                        <a href="#" th:text="${article.title}"></a>
+                    </h4>
+                    <p class="card-text" th:text="${article.description}"></p>
+                    <a th:href="'/article/'+${article.id}" class="btn btn-primary">Читать далее &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- Modal -->
+
+    <h1 class="mt-4 mb-3 text-center display-4">Мероприятия</h1>
+    <div class="row" style="padding-left:10px;padding-right:10px;">
+        <div class="col-lg-4 col-sm-5 portfolio-item" th:each="event : ${eventList}">
+            <div class="card h-100">
+                <img class="card-img-top" th:src="${event.image}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title" style="color:black;">
+                        <a href="#" th:text="${event.title}"></a>
+                    </h4>
+                    <h4 class="card-title" style="color:black;" th:text="'Дата проведения: '+${event.eventDate}"></h4>
+                    <p class="card-text" th:text="${event.description}"></p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Зарегистрироваться
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label class="text-dark font-bold">Регистрация</label>
+                        <hr>
+                        <label for="firstName" class="text-dark font-bold">ФИО</label>
+                        <input id="firstName" type="text" class="form-control">
+                        <label for="email" class="text-dark font-bold">Почта</label>
+                        <input id="email" type="text" class="form-control">
+                        <label for="number" class="text-dark font-bold">Контактный телефон</label>
+                        <input id="number" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary">Регистрация</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var maxlength = 150;
+        $('p.card-text').text(function (_, text) {
+            return $.trim(text).substring(0, maxlength)+'...';
+        });
+    </script>
+    <!-- Call to Action Section -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <p>Если вам нужна экстренная помощь, нажмите на кнопку ниже.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a class="btn btn-lg btn-danger btn-block" href="#">Экстренная помощь</a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="~{layout}">
 <head>
-    <title>Опросы</title>
+    <title>Мероприятия</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -10,13 +10,13 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Опросы</h1>
+        <h1 class="mt-4 mb-3">Мероприятия</h1>
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="index.html">Главная</a>
             </li>
-            <li class="breadcrumb-item active">Опросы</li>
+            <li class="breadcrumb-item active">Мероприятия</li>
         </ol>
 
         <div class="row">
@@ -25,14 +25,39 @@
             <div class="col-md-8">
 
                 <!-- Blog Post -->
-                <div class="card mb-4">
-                    <a href="https://docs.google.com/forms/d/171Lxev5XGqjGtdbIeEzK_nwhn45W9V2IpcCRDap5Xq8/edit" target="_blank">
-                        <img class="card-img-top" src="https://umi.ru/images/cms/data/sozdanie_oprosov.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h2 class="card-title">Опрос на тему "Семейно-бытовое насилие"</h2>
-                            <p class="card-text" size="30">Уважаемые жители г.Бишкек! Мы проводим социологический опрос населения города с целью изучения осведомлённости бишкекчан о проблеме распространенности жестокого обращения в семье и домашнего насилия в нашей стране. Убедительно просим Вас принять участие в нашем исследовании. Ваше мнение очень важно для нас. Анонимность опроса гарантируется. Все полученные данные будут использованы только в обобщенном виде исключительно в научных целях.</p>
+                <div class="card mb-4" th:each="event : ${eventList}">
+                    <img class="card-img-top" th:src="${event.image}" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title" th:text="${event.title}">Название</h2>
+                        <p class="card-text" th:text="${event.description}">Описание</p>
+                        <p class="card-text" th:text="'Дата проведения: '+${event.eventDate}"></p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Зарегистрироваться
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="form-group">
+                                    <label class="text-dark font-bold">Регистрация</label>
+                                    <hr>
+                                    <label for="firstName" class="text-dark font-bold">ФИО</label>
+                                    <input id="firstName" type="text" class="form-control">
+                                    <label for="email" class="text-dark font-bold">Почта</label>
+                                    <input id="email" type="text" class="form-control">
+                                    <label for="number" class="text-dark font-bold">Контактный телефон</label>
+                                    <input id="number" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                <button type="button" class="btn btn-primary">Регистрация</button>
+                            </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
 
                 <!-- Pagination -->
@@ -51,13 +76,13 @@
 
                 <!-- Search Widget -->
                 <div class="card mb-4">
-                    <h5 class="card-header">Search</h5>
+                    <h5 class="card-header">Поиск</h5>
                     <div class="card-body">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search for...">
                             <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
+                                <button class="btn btn-secondary" type="button">Искать!</button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -96,7 +121,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Side Widget -->
                 <div class="card my-4">
                     <h5 class="card-header">Side Widget</h5>

@@ -40,10 +40,6 @@ public class NewsServiceImpl implements NewsService {
                     newNews.setTitle(news.getTitle());
                     newNews.setDescription(news.getDescription());
                     newNews.setImage(news.getImage());
-//                    if (newsModel.getImage() != null && newsModel.getImage().getContentType().contains("image")) {
-//                        newNews.setImage(UtilBase64Image.encoder(newsModel.getImage()));
-//                    }
-//                    newNews.setCreatedDate(newsModel.getCreatedDate());
                     return newsRepository.save(newNews);
                 })
                 .orElseThrow(() ->

@@ -16,7 +16,7 @@ import java.util.List;
 
 @CrossOrigin
 @Controller
-@RequestMapping("articles/")
+@RequestMapping("article/")
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
@@ -48,13 +48,12 @@ public class ArticleController {
         model.addAttribute("lastThreeArticles", lastThreeArt);
         model.addAttribute("centers", getCrisisCenters());
         return "articleDetail";
-
     }
 
     @PostMapping(value = "/create")
     public String addArticle(@Valid @ModelAttribute("article") Article article) {
         articleService.create(article);
-        return "redirect:/articles/list";
+        return "redirect:/article/list";
     }
 
     @DeleteMapping
