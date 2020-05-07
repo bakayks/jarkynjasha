@@ -1,8 +1,10 @@
 package kg.inai.jarkynjasha.controller;
 
 import kg.inai.jarkynjasha.entity.Article;
+import kg.inai.jarkynjasha.entity.CrisisСenter;
 import kg.inai.jarkynjasha.model.ArticleModel;
 import kg.inai.jarkynjasha.service.ArticleService;
+import kg.inai.jarkynjasha.service.CrisisCenterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,6 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-
     @GetMapping(value = "/list")
     public String getAll(Model model) {
         List<Article> articleList=articleService.findAll();
@@ -31,7 +32,6 @@ public class ArticleController {
     }
 
 
-    @PostMapping
     public void create(@RequestBody ArticleModel article) {
         articleService.create(article);
     }
